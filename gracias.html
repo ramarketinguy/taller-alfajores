@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias! | BlancSucre Patissier</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+
+    <!-- Meta Pixel Code -->
+    <script>
+        function getExternalId() {
+            let extId = localStorage.getItem('_external_id');
+            if (!extId) {
+                extId = 'anon_' + Math.floor(Date.now() / 1000) + '_' + Math.random().toString(36).substring(2, 15);
+                localStorage.setItem('_external_id', extId);
+            }
+            return extId;
+        }
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '4195775177312015', { external_id: getExternalId() });
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=4195775177312015&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+    <style>
+        :root {
+            --primary: #4A3320;
+            --accent: #B0743E;
+            --bg-warm: #FCFAEF;
+            --text-main: #2D1E12;
+            --text-light: #6D5D50;
+            --success: #27ae60;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-warm);
+            background-image: radial-gradient(circle at 15% 15%, rgba(176, 116, 62, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 85% 85%, rgba(176, 116, 62, 0.05) 0%, transparent 40%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+        .gracias-card {
+            background: rgba(255, 255, 255, 0.98);
+            width: 100%;
+            max-width: 420px;
+            padding: 30px 24px;
+            border-radius: 28px;
+            box-shadow: 0 20px 40px -10px rgba(74, 51, 32, 0.12);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .check-circle {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, var(--success), #2ecc71);
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: 0 6px 12px rgba(39, 174, 96, 0.2);
+            margin: 0 auto 18px;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        p.intro {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+        .group-box {
+            background: #F0F9FF;
+            border: 1px solid #BAE6FD;
+            padding: 20px;
+            border-radius: 18px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .group-box h2 {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #0369A1;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+        .group-box p {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: #075985;
+            margin-bottom: 16px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-wa {
+            background: #25D366;
+            color: white;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+        }
+        .btn-wa:hover { 
+            background: #128C7E;
+            transform: scale(1.01);
+        }
+        
+        .btn-outline {
+            background: white;
+            border: 2px solid #25D366;
+            color: #128C7E;
+            margin-top: 10px;
+        }
+        .btn-outline:hover { background: #F0FDF4; }
+
+        .admin-note {
+            font-size: 0.7rem;
+            color: #64748B;
+            margin-top: 12px;
+            display: block;
+            font-style: italic;
+        }
+
+        .back-home {
+            margin-top: 24px;
+            display: inline-block;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            opacity: 0.4;
+            transition: 0.3s;
+        }
+        .back-home:hover { opacity: 0.8; color: var(--accent); }
+
+        @media (max-width: 400px) {
+            .gracias-card { padding: 24px 20px; }
+            h1 { font-size: 1.4rem; }
+            p.intro { font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gracias-card">
+        <div class="check-circle">✓</div>
+        <h1 id="main-h1">¡Ya casi está!</h1>
+        <p class="intro" id="main-p">Tu lugar está reservado temporalmente. Para confirmarlo definitivamente, <strong>por favor envianos el comprobante</strong> por WhatsApp.</p>
+        
+        <div class="group-box" id="thanks-cta-box">
+            <h2>Paso Final</h2>
+            <p id="cta-p">Accedé al grupo para estar informado sobre este y próximos talleres. Ante cualquier consulta, podés contactar a las administradoras del mismo.</p>
+            <a href="https://chat.whatsapp.com/BGKuvkzAdYX62bUxhJRLMe?mode=gi_t" class="btn btn-wa" id="main-action-btn">
+                Entrar al Grupo
+            </a>
+            <span class="admin-note">Consultas adicionales con las administradoras del grupo.</span>
+        </div>
+
+        <div id="transfer-section">
+            <a href="#" id="wa-comprobante-btn" class="btn btn-outline">
+                Enviar Comprobante
+            </a>
+        </div>
+
+        <a href="index.html" class="back-home">← Volver al inicio</a>
+    </div>
+
+    <script>
+        function updateUI() {
+            const params = new URLSearchParams(window.location.search);
+            const method = params.get('method');
+            const plan = params.get('plan') || 'Taller';
+            
+            // Recuperar datos del usuario
+            let userData = { fname: 'Participante', lname: '', email: '-', phone: '-', cert: 'Digital' };
+            try {
+                const saved = localStorage.getItem('user_data');
+                if(saved) userData = JSON.parse(saved);
+            } catch(e) {}
+
+            const waBase = "https://wa.me/59898058264?text=";
+            
+            if (method === 'card') {
+                document.getElementById('main-h1').textContent = '¡Inscripción Exitosa!';
+                document.getElementById('main-p').innerHTML = `¡Felicidades <strong>${userData.fname}</strong>! Ya aseguraste tu lugar. Te esperamos para aprender todos los secretos del taller.`;
+                
+                // Botón principal de confirmar asistencia para tarjetas
+                const mainBtn = document.getElementById('main-action-btn');
+                mainBtn.textContent = "Confirmar Asistencia";
+                mainBtn.onclick = function(e) {
+                    e.preventDefault();
+                    const saleValue = plan.includes('COMBO') ? 5440 : 3200;
+                    if (typeof fbq !== 'undefined') fbq('track', 'Purchase', { currency: 'UYU', value: saleValue });
+                    const msg = encodeURIComponent(`¡Hola! Soy ${userData.fname} ${userData.lname}. Acabo de realizar el pago por Tarjeta para el ${plan}. Mi correo es ${userData.email}, mi tel es ${userData.phone} y prefiero mi CERTIFICADO: ${userData.cert}. ¡Confirmame la recepción!`);
+                    window.open(waBase + msg, '_blank');
+                    // Después de enviar el mensaje, llevar al grupo tras un breve delay
+                    setTimeout(() => {
+                        window.location.href = "https://chat.whatsapp.com/BGKuvkzAdYX62bUxhJRLMe?mode=gi_t";
+                    }, 2000);
+                };
+
+                document.getElementById('transfer-section').style.display = 'none';
+            } else {
+                // Caso Transferencia
+                const comprobanteBtn = document.getElementById('wa-comprobante-btn');
+                const msgTransfer = encodeURIComponent(`Hola! Soy ${userData.fname} ${userData.lname}. Acabo de realizar la transferencia para el ${plan}. Mi correo: ${userData.email}, mi tel es ${userData.phone} y prefiero mi CERTIFICADO: ${userData.cert}. Adjunto comprobante.`);
+                comprobanteBtn.href = waBase + msgTransfer;
+                
+                comprobanteBtn.onclick = function() {
+                    const saleValue = plan.includes('COMBO') ? 4930 : 2900;
+                    if (typeof fbq !== 'undefined') fbq('track', 'Purchase', { currency: 'UYU', value: saleValue });
+                };
+            }
+        }
+        window.addEventListener('load', updateUI);
+    </script>
+</body>
+</html>

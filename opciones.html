@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva tu lugar — Masterclass de Alfajores | BlancSucre</title>
+    <meta name="description" content="Asegurá tu lugar en la Masterclass de Alfajores Rentables con Ariel Ferreyra. Cupos limitados, precios de preventa.">
+    <meta property="og:title" content="Reserva tu lugar — Masterclass de Alfajores | BlancSucre">
+    <meta property="og:description" content="Asegurá tu lugar en la Masterclass de Alfajores Rentables con Ariel Ferreyra.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="og-image.png">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        function getExternalId() {
+            let extId = localStorage.getItem('_external_id');
+            if (!extId) {
+                extId = 'anon_' + Math.floor(Date.now() / 1000) + '_' + Math.random().toString(36).substring(2, 15);
+                localStorage.setItem('_external_id', extId);
+            }
+            return extId;
+        }
+        fbq('init', '4195775177312015', { external_id: getExternalId() });
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=4195775177312015&ev=PageView&noscript=1"/></noscript>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --chocolate: #4A3320;
+            --chocolate-light: #5d4233;
+            --caramelo: #B0743E;
+            --caramelo-light: #d4a574;
+            --crema: #FCFAEF;
+            --crema-dark: #f5ede0;
+            --oro: #D4AF37;
+            --oro-light: #e8cc6e;
+            --verde: #1a8a4a;
+            --verde-bg: #e8f8f0;
+            --blanco: #FFFFFF;
+            --pds: 'Playfair Display', serif;
+            --outfit: 'Outfit', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--outfit);
+            background-color: var(--crema);
+            color: var(--chocolate);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ═══════════════════════════════════
+           TOP BAR — SCARCITY COUNTER
+        ═══════════════════════════════════ */
+        .top-bar {
+            background: linear-gradient(135deg, var(--chocolate) 0%, var(--chocolate-light) 100%);
+            color: var(--crema);
+            padding: 0.7rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(74, 51, 32, 0.3);
+        }
+
+        .top-bar-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        .back-link {
+            color: var(--crema);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            min-width: 40px;
+        }
+        .back-link:hover { opacity: 1; }
+
+        .scarcity-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(255,255,255,0.1);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .pulse-dot {
+            width: 8px; height: 8px;
+            background: #ff4757;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255,71,87,0.6); }
+            50% { box-shadow: 0 0 0 8px rgba(255,71,87,0); }
+        }
+
+        .scarcity-text {
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .scarcity-text .count {
+            color: var(--oro-light);
+            font-size: 1.1rem;
+        }
+
+        /* ═══ MP BUTTON PREMIUM ═══ */
+        .btn-mp {
+            width: 100%;
+            background: linear-gradient(135deg, #00B1EA, #009EE3);
+            color: white;
+            border: none;
+            padding: 1.2rem;
+            border-radius: 15px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 177, 234, 0.2);
+            margin-top: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn-mp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 177, 234, 0.3);
+            filter: brightness(1.1);
+        }
+        .btn-mp:active {
+            transform: translateY(-1px);
+        }
+
+        /* ═══════════════════════════════════
+           HERO / HEADER
+        ═══════════════════════════════════ */
+        .hero-section {
+            text-align: center;
+            padding: 3.5rem 1.5rem 2.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            color: var(--caramelo);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-family: var(--pds);
+            font-size: clamp(2.2rem, 7vw, 3.8rem);
+            line-height: 1.15;
+            color: var(--chocolate);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: #7a6a5d;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        /* ═══════════════════════════════════
+           STAGE BADGE
+        ═══════════════════════════════════ */
+        .stage-indicator {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .stage-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 1.5rem;
+            background: var(--chocolate);
+            color: var(--crema);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .stage-pill .stage-dot {
+            width: 6px; height: 6px;
+            background: var(--oro);
+            border-radius: 50%;
+        }
+
+        /* ═══════════════════════════════════
+           PRICE STAGES TIMELINE
+        ═══════════════════════════════════ */
+        .stages-wrapper {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            padding: 0 1.5rem;
+        }
+
+        .stages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .stage-card {
+            background: var(--blanco);
+            padding: 1.8rem 1.2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stage-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: #ddd;
+            transition: background 0.3s;
+        }
+
+        .stage-card.active {
+            border-color: var(--caramelo);
+            box-shadow: 0 15px 40px rgba(176, 116, 62, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .stage-card.active::before {
+            background: linear-gradient(90deg, var(--caramelo), var(--oro));
+        }
+
+        .stage-card.future { opacity: 0.55; }
+
+        .stage-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--caramelo);
+            margin-bottom: 0.6rem;
+        }
+
+        /* Cash price FIRST and prominent */
+        .stage-price-cash {
+            font-family: var(--pds);
+            font-size: 2.2rem;
+            color: var(--verde);
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.15rem;
+            font-weight: 900;
+        }
+
+        .stage-cash-label {
+            font-size: 0.72rem;
+            color: var(--verde);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+        }
+
+        .stage-cash-label .cash-badge {
+            background: var(--verde-bg);
+            border: 1px solid rgba(26,138,74,0.2);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.6rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stage-divider {
+            width: 40px;
+            height: 1px;
+            background: #e0d8cf;
+            margin: 0 auto 0.8rem;
+        }
+
+        .stage-price-card {
+            font-family: var(--pds);
+            font-size: 1.3rem;
+            color: var(--chocolate);
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.15rem;
+            opacity: 0.7;
+        }
+
+        .stage-card-label {
+            font-size: 0.68rem;
+            color: #999;
+        }
+
+        .stage-dates {
+            margin-top: 0.8rem;
+            font-size: 0.72rem;
+            color: var(--caramelo);
+            font-weight: 600;
+            padding-top: 0.8rem;
+            border-top: 1px solid #f0ebe3;
+        }
+
+        /* ═══════════════════════════════════
+           CHECKOUT CARD
+        ═══════════════════════════════════ */
+        .checkout-section {
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            padding: 0 1.5rem;
+        }
+
+        .checkout-card {
+            background: var(--blanco);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(74, 51, 32, 0.08);
+        }
+
+        .checkout-header {
+            background: linear-gradient(135deg, var(--chocolate) 0%, var(--chocolate-light) 100%);
+            color: var(--crema);
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .checkout-header h2 {
+            font-family: var(--pds);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .checkout-header p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 0.2rem;
+        }
+
+        .checkout-body {
+            padding: 2rem;
+        }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .price-breakdown {
+            border-right: 1px solid #f0ebe3;
+            padding-right: 2.5rem;
+        }
+
+        .price-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.7rem 0;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #f8f5f0;
+        }
+
+        .price-line:last-of-type { border-bottom: none; }
+
+        .price-line .label { color: #7a6a5d; }
+        .price-line .value { font-weight: 600; }
+        .price-line .free { color: var(--verde); font-weight: 700; }
+
+        .price-total-block {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--chocolate);
+        }
+
+        /* CASH OPTION — PROMINENT */
+        .cash-hero {
+            background: linear-gradient(135deg, #1a8a4a 0%, #15753f 100%);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cash-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .cash-hero-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.8);
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .cash-hero-price {
+            font-family: var(--pds);
+            font-size: 2.8rem;
+            color: white;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+
+        .cash-hero-saving {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: rgba(255,255,255,0.15);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.95);
+        }
+
+        .card-option {
+            text-align: center;
+            padding: 0.8rem;
+            border: 1px solid #e8e3db;
+            border-radius: 12px;
+            background: #faf8f3;
+        }
+
+        .card-option-price {
+            font-family: var(--pds);
+            font-size: 1.4rem;
+            color: var(--chocolate);
+            opacity: 0.7;
+        }
+
+        .card-option-label {
+            font-size: 0.72rem;
+            color: #999;
+        }
+
+        .payment-action {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .wa-info {
+            font-size: 0.95rem;
+            color: #7a6a5d;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .reserve-button {
+            width: 100%;
+            background: var(--chocolate);
+            color: var(--crema);
+            border: none;
+            padding: 1.3rem;
+            border-radius: 14px;
+            font-family: var(--outfit);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reserve-button::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .reserve-button:hover {
+            background: var(--caramelo);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(176, 116, 62, 0.3);
+        }
+
+        .reserve-button:hover::after { left: 100%; }
+
+        .trust-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.78rem;
+            color: #aaa;
+        }
+
+        /* ═══════════════════════════════════
+           REVEAL DIVIDER — ¿QUERÉS APRENDER MÁS?
+        ═══════════════════════════════════ */
+        .reveal-divider {
+            text-align: center;
+            padding: 4rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reveal-divider::before,
+        .reveal-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 25%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--caramelo), transparent);
+        }
+
+        .reveal-divider::before { left: 5%; }
+        .reveal-divider::after { right: 5%; }
+
+        .reveal-title {
+            font-family: var(--pds);
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            color: var(--chocolate);
+            line-height: 1.2;
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .reveal-subtitle {
+            font-size: 1.1rem;
+            color: var(--caramelo);
+            font-weight: 500;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .reveal-glow {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--caramelo), var(--oro), var(--caramelo));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            to { background-position: 200% center; }
+        }
+
+        /* ═══════════════════════════════════
+           HIDDEN SECTION — COMBO UPGRADE
+        ═══════════════════════════════════ */
+        .hidden-section {
+            display: none;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .hidden-section.visible {
+            display: block;
+            animation: revealSection 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        @keyframes revealSection {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ═══════════════════════════════════
+           COMBO / UPGRADE SECTION
+        ═══════════════════════════════════ */
+        .combo-section {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            padding: 0 1.5rem;
+        }
+
+        .combo-card {
+            background: var(--blanco);
+            border: 2px solid var(--oro);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .combo-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--oro), var(--caramelo), var(--oro));
+        }
+
+        .combo-hero {
+            text-align: center;
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .combo-eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            color: var(--caramelo);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .combo-title {
+            font-family: var(--pds);
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--chocolate);
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+
+        .combo-description {
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1rem;
+            color: #7a6a5d;
+            line-height: 1.7;
+        }
+
+        .combo-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+            padding: 1.5rem 2rem;
+        }
+
+        .combo-gallery img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .combo-gallery img:hover { transform: scale(1.05); }
+
+        .combo-details {
+            padding: 0 2rem 2rem;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-item {
+            text-align: center;
+            padding: 1.2rem;
+            background: var(--crema);
+            border-radius: 14px;
+        }
+
+        .detail-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .detail-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.2rem; }
+        .detail-value { font-weight: 700; font-size: 0.9rem; color: var(--chocolate); }
+
+        /* Combo Pricing */
+        .combo-pricing-wrapper {
+            background: linear-gradient(180deg, #fff9f0, #fff5e8);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .combo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--oro), #c9a030);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .combo-savings-title {
+            font-family: var(--pds);
+            font-size: 2rem;
+            color: var(--chocolate);
+            margin-bottom: 0.5rem;
+        }
+
+        .combo-savings-sub {
+            color: #7a6a5d;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .combo-price-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .combo-price-card {
+            background: var(--blanco);
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .combo-price-card.highlight {
+            border-color: var(--verde);
+            background: var(--verde-bg);
+        }
+
+        .cpc-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.5rem; line-height: 1.4; }
+        .cpc-price { font-family: var(--pds); font-size: 2.2rem; font-weight: 700; color: var(--chocolate); line-height: 1; margin-bottom: 0.3rem; }
+        .cpc-detail { font-size: 0.75rem; color: #999; }
+
+        .combo-price-card.highlight .cpc-label { color: var(--verde); }
+        .combo-price-card.highlight .cpc-price { color: var(--verde); }
+        .combo-price-card.highlight .cpc-detail { color: var(--verde); font-weight: 600; }
+
+        /* Dual CTA Buttons */
+        .cta-duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .btn-primary-cta {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 1.2rem 1rem;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.3);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary-cta::before {
+            content: '⭐ RECOMENDADO';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            background: #1a8a4a;
+            font-size: 0.55rem;
+            padding: 0.15rem 0.6rem;
+            border-radius: 0 0 6px 6px;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(46, 204, 113, 0.4);
+        }
+
+        .btn-secondary-cta {
+            background: transparent;
+            color: var(--chocolate);
+            padding: 1.2rem 1rem;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-align: center;
+            border: 2px solid var(--chocolate);
+            transition: all 0.3s;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-secondary-cta:hover {
+            background: var(--chocolate);
+            color: var(--crema);
+        }
+
+        .combo-footer-info {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.82rem;
+            color: #999;
+        }
+
+        /* ═══════════════════════════════════
+           PREMIUM MODAL
+        ═══════════════════════════════════ */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(34, 22, 12, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 5000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.35s, visibility 0.35s;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .modal {
+            background: var(--chocolate);
+            border-radius: 24px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 92vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+            animation: modalSlideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            color: var(--crema);
+        }
+
+        @keyframes modalSlideIn {
+            from { transform: translateY(40px) scale(0.95); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: var(--crema);
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+
+        .modal-close:hover { background: rgba(255,255,255,0.2); }
+
+        .modal-header {
+            text-align: center;
+            padding: 2.5rem 2rem 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .modal-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--oro-light);
+            margin-bottom: 0.6rem;
+        }
+
+        .modal-title {
+            font-family: var(--pds);
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .modal-price-hero {
+            margin-top: 0.8rem;
+        }
+
+        .modal-price-hero .price-big {
+            font-family: var(--pds);
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .modal-price-hero .price-sub {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        .modal-includes {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .modal-include-tag {
+            background: rgba(255,255,255,0.08);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        /* Form */
+        .modal-form {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .form-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--caramelo-light);
+            margin-bottom: 1rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .form-group { margin-bottom: 0.8rem; }
+
+        .form-group label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.06);
+            border-radius: 10px;
+            color: var(--crema);
+            font-family: var(--outfit);
+            font-size: 0.9rem;
+            transition: border-color 0.3s, background 0.3s;
+            outline: none;
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255,255,255,0.3);
+        }
+
+        .form-group input:focus {
+            border-color: var(--caramelo);
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Payment Options */
+        .modal-payment {
+            padding: 1.5rem 2rem 2rem;
+        }
+
+        .payment-option {
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .payment-option.cuotas {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .payment-option.contado {
+            background: rgba(26, 138, 74, 0.15);
+            border: 1px solid rgba(26, 138, 74, 0.3);
+        }
+
+        .po-header {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .po-icon {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .cuotas .po-icon { background: rgba(255,255,255,0.1); }
+        .contado .po-icon { background: rgba(26,138,74,0.2); }
+
+        .po-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .po-desc {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .contado .po-desc {
+            color: rgba(255,255,255,0.75);
+        }
+
+        .po-price-line {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .po-price {
+            font-family: var(--pds);
+            font-size: 1.8rem;
+            font-weight: 900;
+        }
+
+        .contado .po-price { color: #5dde9e; }
+
+        .po-price-label {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .contado .po-price-label { color: rgba(255,255,255,0.7); }
+
+        /* Transfer details */
+        .transfer-details {
+            background: rgba(0,0,0,0.2);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.82rem;
+        }
+
+        .transfer-details p {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.3rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .transfer-details p:last-child { border-bottom: none; }
+
+        .transfer-details .td-label { color: rgba(255,255,255,0.5); }
+        .transfer-details .td-value { font-weight: 600; color: var(--crema); }
+
+        .btn-mp {
+            width: 100%;
+            background: #009ee3;
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 12px;
+            font-family: var(--outfit);
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-mp:hover {
+            background: #007bbf;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 158, 227, 0.3);
+        }
+
+        .btn-transfer {
+            width: 100%;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 12px;
+            font-family: var(--outfit);
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-transfer:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.3);
+        }
+
+        .modal-footer {
+            text-align: center;
+            padding: 0 2rem 1.5rem;
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.35);
+        }
+
+        /* ═══════════════════════════════════
+           TOAST NOTIFICATIONS
+        ═══════════════════════════════════ */
+        .toast-container {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            z-index: 2000;
+            max-width: 340px;
+        }
+
+        .toast {
+            background: var(--blanco);
+            padding: 0.8rem 1.2rem;
+            border-radius: 14px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+            animation: toastIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            border-left: 4px solid var(--caramelo);
+        }
+
+        @keyframes toastIn {
+            from { transform: translateX(-120%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .toast-avatar {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: var(--chocolate);
+            color: var(--crema);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .toast-name { font-weight: 700; font-size: 0.85rem; }
+        .toast-msg { font-size: 0.75rem; color: #888; }
+
+        .footer-mini {
+            text-align: center;
+            padding: 2rem 1.5rem 3rem;
+            font-size: 0.8rem;
+            color: #bbb;
+        }
+
+        /* ═══════════════════════════════════
+           RESPONSIVE
+        ═══════════════════════════════════ */
+        @media (max-width: 768px) {
+            .stages-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+            .stage-card { padding: 1.4rem 1rem; }
+            .stage-card.active { transform: none; }
+            .stage-price-cash { font-size: 1.9rem; }
+
+            .checkout-body { padding: 1.5rem; }
+            .checkout-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .price-breakdown { border-right: none; padding-right: 0; border-bottom: 1px solid #f0ebe3; padding-bottom: 1.5rem; }
+
+            .combo-gallery { grid-template-columns: repeat(2, 1fr); }
+            .details-grid { grid-template-columns: 1fr; gap: 0.6rem; }
+
+            .combo-hero { padding: 2rem 1.5rem 1rem; }
+            .combo-details { padding: 0 1.5rem 1.5rem; }
+            .combo-pricing-wrapper { padding: 1.5rem; }
+            .combo-price-grid { grid-template-columns: 1fr; }
+
+            .cta-duo { grid-template-columns: 1fr; }
+
+            .back-link span { display: none; }
+            .scarcity-text { font-size: 0.7rem; }
+            .scarcity-badge { padding: 0.3rem 0.8rem; }
+
+            .hero-section { padding: 2.5rem 1.5rem 1.5rem; }
+            .hero-title { font-size: 2.4rem; }
+
+            .cash-hero-price { font-size: 2.4rem; }
+
+            .toast-container { left: 1rem; right: 1rem; max-width: none; }
+
+            .modal { max-height: 95vh; border-radius: 20px; }
+            .modal-header { padding: 2rem 1.5rem 1.2rem; }
+            .modal-form { padding: 1.2rem 1.5rem; }
+            .modal-payment { padding: 1.2rem 1.5rem 1.5rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .modal-price-hero .price-big { font-size: 2.4rem; }
+
+            .reveal-divider { padding: 3rem 1.5rem; }
+        }
+
+        @media (max-width: 360px) {
+            .hero-title { font-size: 2rem; }
+            .scarcity-text { font-size: 0.65rem; }
+        }
+
+        /* Scrollbar styling for modal */
+        .modal::-webkit-scrollbar { width: 6px; }
+        .modal::-webkit-scrollbar-track { background: transparent; }
+        .modal::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- ═══ TOP BAR ═══ -->
+    <nav class="top-bar">
+        <div class="top-bar-inner">
+            <a href="index.html" class="back-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                <span>Volver</span>
+            </a>
+            <div class="scarcity-badge">
+                <span class="pulse-dot"></span>
+                <span class="scarcity-text">QUEDAN <span class="count" id="cupos-count">15</span> CUPOS</span>
+            </div>
+            <div style="width:40px;"></div>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero-section" data-aos="fade-up">
+        <p class="hero-eyebrow">Pasión por el detalle</p>
+        <h1 class="hero-title">Tu lugar en<br>la Masterclass</h1>
+        <p class="hero-subtitle">Asegurá tu cupo al mejor precio antes de que cambie la etapa de preventa.</p>
+    </section>
+
+    <!-- ═══ STAGE INDICATOR ═══ -->
+    <div class="stage-indicator" data-aos="fade-up" data-aos-delay="100">
+        <div class="stage-pill">
+            <span class="stage-dot"></span>
+            FASE ACTUAL: PREVENTA 1
+        </div>
+    </div>
+
+    <!-- ═══ PRICING STAGES — Cash price FIRST ═══ -->
+    <div class="stages-wrapper" data-aos="fade-up" data-aos-delay="200">
+        <div class="stages-grid">
+            <div class="stage-card active">
+                <div class="stage-label">Preventa 1</div>
+                <span class="stage-price-cash">$2.900</span>
+                <div class="stage-cash-label"><span class="cash-badge">MEJOR PRECIO</span> Contado / Transferencia</div>
+                <div class="stage-divider"></div>
+                <span class="stage-price-card">$3.200</span>
+                <div class="stage-card-label">Tarjeta · hasta 12 cuotas</div>
+                <div class="stage-dates">Hasta el 30 de Abril</div>
+            </div>
+            <div class="stage-card future">
+                <div class="stage-label">Preventa 2</div>
+                <span class="stage-price-cash">$3.150</span>
+                <div class="stage-cash-label">Contado / Transferencia</div>
+                <div class="stage-divider"></div>
+                <span class="stage-price-card">$3.490</span>
+                <div class="stage-card-label">Tarjeta · hasta 12 cuotas</div>
+                <div class="stage-dates">Del 1 al 15 de Mayo</div>
+            </div>
+            <div class="stage-card future">
+                <div class="stage-label">Precio Final</div>
+                <span class="stage-price-cash">$3.400</span>
+                <div class="stage-cash-label">Contado / Transferencia</div>
+                <div class="stage-divider"></div>
+                <span class="stage-price-card">$3.790</span>
+                <div class="stage-card-label">Tarjeta · hasta 12 cuotas</div>
+                <div class="stage-dates">Desde el 16 de Mayo</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ CHECKOUT CARD ═══ -->
+    <div class="checkout-section" data-aos="fade-up">
+        <div class="checkout-card">
+            <div class="checkout-header">
+                <div>
+                    <h2>Masterclass de Alfajores</h2>
+                    <p>Reservá tu lugar con Ariel Ferreyra</p>
+                </div>
+            </div>
+            <div class="checkout-body">
+                <div class="checkout-grid">
+                    <div class="price-breakdown">
+                        <div class="price-line">
+                            <span class="label">Masterclass completa</span>
+                            <span class="value">$3.200</span>
+                        </div>
+                        <div class="price-line">
+                            <span class="label">Recetario incluido</span>
+                            <span class="free">GRATIS</span>
+                        </div>
+                        <div class="price-line">
+                            <span class="label">Degustación</span>
+                            <span class="free">GRATIS</span>
+                        </div>
+
+                        <div class="price-total-block">
+                            <div class="cash-hero">
+                                <div class="cash-hero-label">Precio contado / transferencia</div>
+                                <div class="cash-hero-price">$2.900</div>
+                                <span class="cash-hero-saving">✓ Ahorrás $290 · 10% OFF</span>
+                            </div>
+                            <div class="card-option">
+                                <div class="card-option-price">$3.200</div>
+                                <div class="card-option-label">Tarjeta · hasta 12 cuotas</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-action">
+                        <p class="wa-info">Elegí la opción de pago que prefieras. Al reservar, te pediremos algunos datos para confirmar tu lugar de forma rápida y segura.</p>
+                        <button class="reserve-button" id="btn-reservar-solo" onclick="revealCombo()">
+                            Reservar mi lugar ahora
+                        </button>
+                        <div class="trust-line">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Pago seguro · Reserva inmediata · Cupo garantizado
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════
+         HIDDEN SECTION — Revealed on CTA click
+    ═══════════════════════════════════ -->
+    <div class="hidden-section" id="hidden-section">
+
+        <!-- Reveal Divider -->
+        <div class="reveal-divider" data-aos="fade-up">
+            <h2 class="reveal-title"><span class="reveal-glow">¿Querés aprender más?</span></h2>
+            <p class="reveal-subtitle">Aprovechá un descuento exclusivo combinando ambas masterclass</p>
+        </div>
+
+        <!-- ═══ COMBO / UPGRADE ═══ -->
+        <div class="combo-section" data-aos="fade-up">
+            <div class="combo-card">
+                <div class="combo-hero">
+                    <p class="combo-eyebrow">¡Aprovechá esta oportunidad!</p>
+                    <h2 class="combo-title">Masterclass<br>en La Paz</h2>
+                    <p class="combo-description">
+                        Debido al éxito total de la edición anterior, <strong>Ariel</strong> regresa y a pedido, esta vez en <strong>Montevideo</strong>, en el prestigioso salón Boulevard Eventos para repetir su seminario más pedido. Aprenderás la técnica de <strong>CHOCOLATE SIN TEMPLAR</strong> para lograr un brillo perfecto y el uso de polvos metalizados.
+                    </p>
+                </div>
+
+                <!-- Photo Gallery -->
+                <div class="combo-gallery">
+                    <img src="Chocolate/choco-1.jpeg" alt="Bombones artesanales con brillo espejo" loading="lazy">
+                    <img src="Chocolate/choco-2.jpeg" alt="Bombones de chocolate con polvos metalizados" loading="lazy">
+                    <img src="Chocolate/choco-3.jpeg" alt="Chocolates artísticos sin templado" loading="lazy">
+                    <img src="Chocolate/choco-4.jpeg" alt="Técnica de chocolate sin templar" loading="lazy">
+                </div>
+
+                <!-- Event Details -->
+                <div class="combo-details">
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <div class="detail-icon">📍</div>
+                            <div class="detail-label">Ubicación</div>
+                            <div class="detail-value">Boulevard Eventos</div>
+                            <div style="font-size:0.72rem;color:#999;">Roque Gómez 3178, Montevideo</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">📅</div>
+                            <div class="detail-label">Fecha</div>
+                            <div class="detail-value">Domingo 24 de Mayo</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">🕑</div>
+                            <div class="detail-label">Horario</div>
+                            <div class="detail-value">14 a 20 hs</div>
+                        </div>
+                    </div>
+
+                    <!-- Combo Pricing Block -->
+                    <div class="combo-pricing-wrapper">
+                        <div style="text-align:center;">
+                            <span class="combo-badge">🎁 PACK COMBO · ALFAJORES + CHOCOLATERÍA</span>
+                            <h3 class="combo-savings-title">Un 15% de ahorro para vos</h3>
+                            <p class="combo-savings-sub">Formación completa de dos días. <strong>Válido para todas las modalidades de pago.</strong></p>
+                        </div>
+
+                        <div class="combo-price-grid">
+                            <div class="combo-price-card highlight">
+                                <div class="cpc-label">Contado / Transferencia<br>(Pack completo)</div>
+                                <div class="cpc-price">$4.930</div>
+                                <div class="cpc-detail">MEJOR PRECIO</div>
+                            </div>
+                            <div class="combo-price-card">
+                                <div class="cpc-label">Pago con tarjeta<br>(Pack completo)</div>
+                                <div class="cpc-price">$5.440</div>
+                                <div class="cpc-detail">Hasta 12 cuotas</div>
+                            </div>
+                        </div>
+
+                        <div class="cta-duo">
+                            <button class="btn-primary-cta" onclick="openModal('combo')">
+                                Quiero el combo
+                            </button>
+                            <button class="btn-secondary-cta" onclick="openModal('solo')">
+                                Solo taller de alfajores
+                            </button>
+                        </div>
+
+                        <div style="text-align: center;">
+                            <a href="https://wa.me/59898058264?text=Hola!%20Tengo%20algunas%20dudas%20sobre%20el%20taller." target="_blank" class="btn-dudas" style="margin-top: 2rem; color: #999; border: 1px solid #ddd; display: inline-flex; width: auto;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px; margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                                Tengo dudas
+                            </a>
+                        </div>
+
+                        <p class="combo-footer-info">
+                            <strong>Boulevard Eventos</strong> (Roque Gómez 3178, Montevideo) · Domingo 24 de Mayo, 14 a 20 hs
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-mini">
+        BlancSucre Patissier © 2026 · Todos los derechos reservados.
+    </footer>
+
+    <!-- ═══════════════════════════════════
+         CHECKOUT MODAL
+    ═══════════════════════════════════ -->
+    <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+        <div class="modal" id="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModalDirect()" aria-label="Cerrar modal">✕</button>
+
+            <div class="modal-header">
+                <div class="modal-tag" id="modal-tag">MASTERCLASS</div>
+                <h2 class="modal-title" id="modal-title">Invertí en tu Pasión</h2>
+                <div class="modal-price-hero">
+                    <div class="price-big" id="modal-price-display">$3.200</div>
+                    <div class="price-sub" id="modal-price-sub">Costo total de la Masterclass</div>
+                </div>
+                <div class="modal-includes">
+                    <span class="modal-include-tag">📋 Recetario incluido</span>
+                    <span class="modal-include-tag">🍫 Degustación incluida</span>
+                </div>
+            </div>
+
+            <div class="modal-form">
+                <div class="form-title">Completá tus datos</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fname">Nombre</label>
+                        <input type="text" id="fname" placeholder="Tu nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="lname">Apellido</label>
+                        <input type="text" id="lname" placeholder="Tu apellido">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" placeholder="tu@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono / WhatsApp</label>
+                    <input type="tel" id="phone" placeholder="+598 9X XXX XXXX">
+                </div>
+                <div class="form-group" style="margin-top: 5px;">
+                    <label>¿Cómo preferís tu certificado?</label>
+                    <div style="display: flex; gap: 15px; margin-top: 8px;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer;">
+                            <input type="radio" name="cert-choice" value="Fisico" checked style="accent-color: var(--accent);"> 
+                            Físico (en el taller)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer;">
+                            <input type="radio" name="cert-choice" value="Digital" style="accent-color: var(--accent);"> 
+                            Digital (por email)
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-payment">
+                <div class="payment-option cuotas">
+                    <div class="po-header">
+                        <div class="po-icon">💳</div>
+                        <div class="po-title">Pago con Tarjeta</div>
+                    </div>
+                    <p class="po-desc" id="po-cuotas-desc">Aboná el costo total y financialo hasta en 12 cuotas con Mercado Pago.</p>
+                    <div class="po-price-line">
+                        <span class="po-price" id="po-cuotas-price">$3.200</span>
+                        <span class="po-price-label">con tarjeta</span>
+                    </div>
+
+                     <button class="btn-mp" onclick="handlePay('mp')" id="btn-card-payment">
+                        <svg style="width: 20px;" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+                        Pago con tarjeta
+                    </button>
+                </div>
+
+                <div class="payment-option contado">
+                    <div class="po-header">
+                        <div class="po-icon">💵</div>
+                        <div class="po-title">Transferencia bancaria</div>
+                    </div>
+                    <p class="po-desc" id="po-cash-desc"><strong>Beneficio 10% OFF:</strong> Pagando por transferencia obtenés un precio promocional.</p>
+                    <div class="po-price-line">
+                        <span class="po-price" id="po-cash-price">$2.900</span>
+                        <span class="po-price-label">precio contado</span>
+                    </div>
+
+                    <div class="transfer-details">
+                        <p><span class="td-label">Titular</span><span class="td-value">Flavia Pereira</span></p>
+                        <p><span class="td-label">Cuenta Prex</span><span class="td-value">158186</span></p>
+                    </div>
+
+                    <button class="btn-transfer" onclick="handlePay('transfer')">
+                        Finalizar por Transferencia
+                    </button>
+                    <p style="font-size: 0.7rem; color: rgba(255,255,255,0.4); text-align: center; margin-top: 10px;">Se te redirigirá a WhatsApp para adjuntar el comprobante.</p>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                Al continuar, aceptas la reserva de tu lugar para el Lunes 25 de Mayo en Cala Salón.
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 700, once: true, offset: 50 });
+
+        // ═══ SCARCITY LOGIC ═══
+        let cupos = parseInt(localStorage.getItem('cupos_masterclass'));
+        if (isNaN(cupos)) cupos = 25; // Empezamos desde 25
+
+        const cuposEl = document.getElementById('cupos-count');
+        const lastVisit = localStorage.getItem('last_visit_time');
+        const now = Date.now();
+
+        // Restar 3 cupos si pasaron más de 2 minutos desde la última recarga
+        if (lastVisit && (now - parseInt(lastVisit) > 120000)) {
+            cupos = Math.max(2, cupos - 3);
+        }
+        localStorage.setItem('last_visit_time', now);
+        updateCupos(cupos);
+
+        function updateCupos(val) {
+            cupos = Math.max(2, val); // mínimo 2 cupos para no ponerlo a cero
+            if (cuposEl) cuposEl.textContent = cupos;
+            localStorage.setItem('cupos_masterclass', cupos);
+        }
+
+        // ═══ TOAST NOTIFICATIONS ═══
+        const namesPool = [
+            'Lucía M.', 'Carolina S.', 'Mariana R.', 'Valentina G.', 'Paula D.', 
+            'Sofía L.', 'Florencia P.', 'Camila T.', 'Agustina F.', 'Micaela B.', 
+            'Julieta C.', 'Martina V.', 'Laura H.', 'Romina K.', 'Victoria M.', 
+            'Daniela A.', 'Natalia O.', 'Bárbara S.', 'Verónica T.', 'Gimena R.', 
+            'Antonella P.', 'Magdalena C.', 'Fernanda L.', 'Cecilia G.', 'Guillermina S.'
+        ];
+        const actionsPool = [
+            'acaba de reservar su lugar',
+            'reservó para el taller',
+            'se unió al Combo Masterclass',
+            'acaba de inscribirse',
+            'eligió el pack combo',
+            'aseguró su cupo'
+        ];
+
+        // Usamos localStorage para que si cierran la web y vuelven, no les salten otra vez los mismos
+        let shownCount = parseInt(localStorage.getItem('toasts_shown_count')) || 0;
+        const MAX_TOASTS = 3;
+        const delays = [8000, 35000, 65000]; // Tiempos para notificación 1, 2 y 3
+
+        if (shownCount < MAX_TOASTS) {
+            for (let i = shownCount; i < MAX_TOASTS; i++) {
+                setTimeout(() => {
+                    // Seleccionar datos random para este toast particular
+                    const randomName = namesPool[Math.floor(Math.random() * namesPool.length)];
+                    const randomAction = actionsPool[Math.floor(Math.random() * actionsPool.length)];
+                    
+                    showToast(randomName, randomAction);
+                    
+                    // Actualizamos memoria para que no salten de nuevo al recargar
+                    const currentShown = parseInt(localStorage.getItem('toasts_shown_count')) || 0;
+                    localStorage.setItem('toasts_shown_count', currentShown + 1);
+                    
+                    // Disminuir contador de cupos visualmente
+                    if (cupos > 2) updateCupos(cupos - 1);
+                    
+                }, delays[i]);
+            }
+        }
+
+
+        function showToast(name, msg) {
+            const el = document.createElement('div');
+            el.className = 'toast';
+            el.innerHTML = `
+                <div class="toast-avatar">${name.charAt(0)}</div>
+                <div>
+                    <div class="toast-name">${name}</div>
+                    <div class="toast-msg">${msg}</div>
+                </div>
+            `;
+            document.getElementById('toast-container').appendChild(el);
+            setTimeout(() => {
+                el.style.transition = 'opacity 0.4s, transform 0.4s';
+                el.style.opacity = '0';
+                el.style.transform = 'translateX(-50px)';
+                setTimeout(() => el.remove(), 400);
+            }, 5000);
+        }
+
+        // ═══ REVEAL COMBO SECTION ═══
+        let comboRevealed = false;
+
+        function revealCombo() {
+            if (comboRevealed) {
+                // Already revealed — scroll to combo
+                document.getElementById('hidden-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                return;
+            }
+            comboRevealed = true;
+            const section = document.getElementById('hidden-section');
+            section.classList.add('visible');
+
+            // Re-initialize AOS for newly visible elements
+            setTimeout(() => {
+                AOS.refresh();
+                // Aumentamos el margen a -140 para que en escritorio quede bien centrado y no lo tape la nav
+                const yOffset = -140; 
+                const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }, 100);
+
+            // Change button text
+            document.getElementById('btn-reservar-solo').textContent = 'SOLO TALLER DE ALFAJORES';
+            document.getElementById('btn-reservar-solo').onclick = function() { openModal('solo'); };
+
+            // Pixel event
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'ViewContent', {
+                    content_name: 'Combo Section Revealed',
+                    currency: 'UYU'
+                });
+            }
+        }
+
+        // ═══ MODAL LOGIC ═══
+        let currentModalType = 'solo';
+
+        function openModal(type) {
+            currentModalType = type;
+            const overlay = document.getElementById('modal-overlay');
+            const modal = document.getElementById('modal');
+
+            if (type === 'combo') {
+                document.getElementById('modal-tag').textContent = 'PACK COMBO · ALFAJORES + CHOCOLATERÍA';
+                document.getElementById('modal-title').textContent = 'Invertí en tu Formación Completa';
+                document.getElementById('modal-price-display').textContent = '$5.440';
+                document.getElementById('modal-price-sub').textContent = 'Pack completo · Dos masterclass';
+                document.getElementById('po-cuotas-price').textContent = '$5.440';
+                document.getElementById('po-cuotas-desc').textContent = 'Aboná el pack completo y financialo hasta en 12 cuotas con tarjetas de crédito.';
+                document.getElementById('po-cash-price').textContent = '$4.930';
+                document.getElementById('po-cash-desc').innerHTML = '<strong>Beneficio 15% OFF:</strong> Pagando con transferencia o en efectivo obtenés el mejor precio del pack.';
+            } else {
+                document.getElementById('modal-tag').textContent = 'MASTERCLASS DE ALFAJORES';
+                document.getElementById('modal-title').textContent = 'Invertí en tu Pasión';
+                document.getElementById('modal-price-display').textContent = '$3.200';
+                document.getElementById('modal-price-sub').textContent = 'Costo total de la Masterclass';
+                document.getElementById('po-cuotas-price').textContent = '$3.200';
+                document.getElementById('po-cuotas-desc').textContent = 'Aboná el costo total y financialo hasta en 12 cuotas con tarjetas de crédito.';
+                document.getElementById('po-cash-price').textContent = '$2.900';
+                document.getElementById('po-cash-desc').innerHTML = '<strong>Beneficio 10% OFF:</strong> Pagando con transferencia o en efectivo obtenés el mejor precio.';
+            }
+
+            // Show modal
+            document.body.style.overflow = 'hidden';
+            requestAnimationFrame(() => {
+                overlay.classList.add('active');
+            });
+
+            // Scroll modal to top
+            modal.scrollTop = 0;
+
+            // Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout', {
+                    content_name: type === 'combo' ? 'Combo Alfajores + Chocolatería' : 'Masterclass Alfajores',
+                    currency: 'UYU',
+                    value: type === 'combo' ? 5440 : 3200
+                });
+            }
+        }
+
+        function closeModal(e) {
+            if (e.target === document.getElementById('modal-overlay')) {
+                closeModalDirect();
+            }
+        }
+
+        function closeModalDirect() {
+            const overlay = document.getElementById('modal-overlay');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModalDirect();
+        });
+
+        // ═══ AUTOMACIÓN / LEAD TRACKING ═══
+        // Esta función se activa cuando el usuario llena sus datos pero aún no hizo clic en pagar.
+        // Podés conectar esto a un Webhook de Zapier/Make para enviarte un WhatsApp automático.
+        let leadSent = false;
+        function trackLead() {
+            if (leadSent) return;
+            const fname = document.getElementById('fname').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            if (fname.length > 2 && phone.length > 7) {
+                leadSent = true;
+                const leadData = {
+                    nombre: fname,
+                    apellido: document.getElementById('lname').value.trim(),
+                    email: document.getElementById('email').value.trim(),
+                    telefono: phone,
+                    tipo: currentModalType,
+                    url: window.location.href,
+                    fecha: new Date().toLocaleString()
+                };
+
+                console.log("Lead detectado (Carrito abandonado potencial):", leadData);
+                
+                // NOTA: Aquí es donde colocarías el fetch a tu webhook de automatización:
+                /*
+                fetch('TU_WEBHOOK_URL_AQUI', {
+                    method: 'POST',
+                    body: JSON.stringify(leadData)
+                });
+                */
+            }
+        }
+
+        // Escuchar cambios en los inputs para capturar el lead
+        ['fname', 'lname', 'email', 'phone'].forEach(id => {
+            document.getElementById(id).addEventListener('blur', trackLead);
+        });
+
+        // ═══ PAYMENT HANDLERS ═══
+        function handlePay(method) {
+            const fname = document.getElementById('fname').value.trim();
+            const lname = document.getElementById('lname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            const certChoice = document.querySelector('input[name="cert-choice"]:checked').value;
+
+            if (!fname || !lname || !email || !phone) {
+                ['fname','lname','email','phone'].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (!el.value.trim()) {
+                        el.style.borderColor = '#ff4757';
+                        setTimeout(() => { el.style.borderColor = ''; }, 2000);
+                    }
+                });
+                return;
+            }
+
+            // Guardar datos para personalización en la página de gracias
+            localStorage.setItem('user_data', JSON.stringify({ 
+                fname, lname, email, phone, cert: certChoice 
+            }));
+
+            // Marcar como lead convertido (ya no es abandono)
+            leadSent = true; 
+
+            // Email format validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                const emailEl = document.getElementById('email');
+                emailEl.style.borderColor = '#ff4757';
+                emailEl.placeholder = 'Ingresá un email válido';
+                setTimeout(() => { emailEl.style.borderColor = ''; emailEl.placeholder = 'tu@email.com'; }, 3000);
+                return;
+            }
+
+            const productName = currentModalType === 'combo'
+                ? 'COMBO Alfajores + Chocolatería'
+                : 'Masterclass de Alfajores';
+
+            const price = currentModalType === 'combo'
+                ? (method === 'transfer' ? '$4.930' : '$5.440')
+                : (method === 'transfer' ? '$2.900' : '$3.200');
+
+            // Pixel tracking
+            if (typeof fbq !== 'undefined') {
+                fbq('track', method === 'mp' ? 'AddPaymentInfo' : 'Purchase', {
+                    content_name: productName,
+                    currency: 'UYU',
+                    value: parseFloat(price.replace('$','').replace('.',''))
+                });
+            }
+
+            if (method === 'mp') {
+                // Mercado Pago — redirigir en la misma pestaña.
+                // MP devuelve al usuario a gracias.html una vez que completa el pago
+                // (configurar la URL de retorno en el link de MP en tu cuenta de Mercado Pago).
+                const url = currentModalType === 'combo'
+                    ? 'https://mpago.la/25Db44v'
+                    : 'https://mpago.la/2NqHscG';
+
+                window.location.href = url;
+
+            } else {
+                // Transfer — WhatsApp with user data exactly as requested
+                const message = `Hola! Soy ${fname} ${lname}. Acabo de realizar la transferencia para el ${productName} (${price}). Mi correo: ${email}. Tel: ${phone}. Adjunto comprobante.`;
+                const text = encodeURIComponent(message);
+                window.location.href = 'https://wa.me/59898058264?text=' + text;
+
+                // Enviar Pixel Purchase para transferencia ( Lead convertido)
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Purchase', {
+                        content_name: productName,
+                        currency: 'UYU',
+                        value: parseFloat(price.replace('$','').replace('.',''))
+                    });
+                }
+
+                // Después de un momento redirigir a gracias
+                const planParam = currentModalType === 'combo' ? 'COMBO' : 'Taller';
+                setTimeout(() => {
+                    window.location.href = 'gracias.html?method=transfer&plan=' + planParam;
+                }, 2000);
+            }
+        }
+
+        function closeMPModal() {
+            document.getElementById('mp-iframe-overlay').classList.remove('active');
+            window.location.href = 'gracias.html?method=card';
+        }
+
+        function backToOptions() {
+            document.getElementById('mp-iframe-overlay').classList.remove('active');
+        }
+
+        function proceedToThanks() {
+            const plan = currentModalType === 'combo' ? 'COMBO' : 'Taller';
+            window.location.href = 'gracias.html?method=card&plan=' + plan;
+        }
+
+        // ═══ PIXEL — PageView on load ═══
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'ViewContent', {
+                content_name: 'Página de Opciones - Alfajores',
+                currency: 'UYU',
+                value: 3200
+            });
+        }
+    </script>
+</body>
+</html>
