@@ -1607,8 +1607,8 @@
                 </div>
             </div>
 
-            <div class="modal-footer">
-                Al continuar, aceptas la reserva de tu lugar para el Domingo 24 de Mayo en Boulevard Eventos.
+            <div class="modal-footer" id="modal-footer-text">
+                Al continuar, aceptas la reserva de tu lugar para la Masterclass.
             </div>
         </div>
     </div>
@@ -1756,6 +1756,7 @@
                 document.getElementById('po-cuotas-desc').textContent = 'Aboná el pack completo y financialo hasta en 12 cuotas con tarjetas de crédito.';
                 document.getElementById('po-cash-price').textContent = '$4.930';
                 document.getElementById('po-cash-desc').innerHTML = '<strong>Beneficio 15% OFF:</strong> Pagando con transferencia o en efectivo obtenés el mejor precio del pack.';
+                document.getElementById('modal-footer-text').innerHTML = 'Al continuar, aceptas la reserva para el <strong>Domingo 24</strong> (Chocolatería en Montevideo) y <strong>Lunes 25</strong> (Alfajores en La Paz).';
             } else {
                 document.getElementById('modal-tag').textContent = 'MASTERCLASS DE ALFAJORES';
                 document.getElementById('modal-title').textContent = 'Invertí en tu Pasión';
@@ -1765,6 +1766,7 @@
                 document.getElementById('po-cuotas-desc').textContent = 'Aboná el costo total y financialo hasta en 12 cuotas con tarjetas de crédito.';
                 document.getElementById('po-cash-price').textContent = '$2.900';
                 document.getElementById('po-cash-desc').innerHTML = '<strong>Beneficio 10% OFF:</strong> Pagando con transferencia o en efectivo obtenés el mejor precio.';
+                document.getElementById('modal-footer-text').innerHTML = 'Al continuar, aceptas la reserva de tu lugar para el <strong>Lunes 25 de Mayo</strong> en <strong>Salón Cala (La Paz)</strong>.';
             }
 
             // Show modal
