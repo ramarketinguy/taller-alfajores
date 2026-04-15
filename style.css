@@ -769,8 +769,8 @@ nav.scrolled .btn-main {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 200px;
-    min-height: 120px;
+    min-width: 220px;
+    min-height: 130px;
 }
 
 .sponsor-card:hover {
@@ -779,8 +779,8 @@ nav.scrolled .btn-main {
 }
 
 .sponsor-card img {
-    max-width: 150px;
-    max-height: 80px;
+    max-width: 180px;
+    max-height: 100px;
     object-fit: contain;
     filter: grayscale(10%) opacity(0.85);
     transition: filter 0.4s ease;
