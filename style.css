@@ -743,3 +743,67 @@ nav.scrolled .btn-main {
     height: 14px;
 }
 
+/* --- Sponsors Section --- */
+.sponsors-section {
+    background-color: var(--bg-warm);
+    padding: 3rem 0;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.sponsors-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+}
+
+.sponsor-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+    min-height: 120px;
+}
+
+.sponsor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.sponsor-card img {
+    max-width: 150px;
+    max-height: 80px;
+    object-fit: contain;
+    filter: grayscale(10%) opacity(0.85);
+    transition: filter 0.4s ease;
+}
+
+.sponsor-card:hover img {
+    filter: grayscale(0%) opacity(1);
+}
+
+@media (max-width: 600px) {
+    .sponsors-grid {
+        gap: 1.5rem;
+        flex-direction: column;
+    }
+    
+    .sponsor-card {
+        width: 100%;
+        max-width: 280px;
+        padding: 2rem;
+    }
+    
+    .sponsor-card img {
+        max-width: 180px;
+    }
+}
+
