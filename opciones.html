@@ -29,10 +29,10 @@
             }
             return extId;
         }
-        fbq('init', '4195775177312015', { external_id: getExternalId() });
+        fbq('init', '668514569606718', { external_id: getExternalId() });
         fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=4195775177312015&ev=PageView&noscript=1"/></noscript>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=668514569606718&ev=PageView&noscript=1"/></noscript>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2034,7 +2034,7 @@
             window.location.href = 'gracias.html?method=card&plan=' + plan;
         }
 
-        // ═══ PIXEL — PageView on load ═══
+        // ═══ PIXEL — ViewContent on load ═══
         if (typeof fbq !== 'undefined') {
             fbq('track', 'ViewContent', {
                 content_name: 'Página de Opciones - Alfajores',
@@ -2042,6 +2042,69 @@
                 value: 3200
             });
         }
+
+        // ═══ CAPI helpers ═══
+        function capiGetOrSetFbp() {
+            const m = document.cookie.match(new RegExp('(^| )_fbp=([^;]+)'));
+            if (m) return m[2];
+            const v = `fb.1.${Date.now()}.${Math.round(Math.random() * 10000000000)}`;
+            const d = new Date(); d.setTime(d.getTime() + 90 * 24 * 60 * 60 * 1000);
+            document.cookie = `_fbp=${v};expires=${d.toUTCString()};path=/`;
+            return v;
+        }
+        function capiGetOrSetFbc() {
+            const m = document.cookie.match(new RegExp('(^| )_fbc=([^;]+)'));
+            if (m) return m[2];
+            const fbclid = new URLSearchParams(window.location.search).get('fbclid');
+            if (fbclid) {
+                const v = `fb.1.${Date.now()}.${fbclid}`;
+                const d = new Date(); d.setTime(d.getTime() + 90 * 24 * 60 * 60 * 1000);
+                document.cookie = `_fbc=${v};expires=${d.toUTCString()};path=/`;
+                return v;
+            }
+            return null;
+        }
+        function capiTrack(eventName, customData = {}) {
+            const timeNow = Math.floor(Date.now() / 1000);
+            const eventId = 'evt_' + timeNow + '_' + Math.random().toString(36).slice(2, 11);
+            if (typeof fbq === 'function') fbq('track', eventName, customData, { eventID: eventId });
+            const fbp = capiGetOrSetFbp();
+            const fbc = capiGetOrSetFbc();
+            let extId = localStorage.getItem('_external_id');
+            if (!extId) { extId = 'anon_' + timeNow + '_' + Math.random().toString(36).substring(2, 15); localStorage.setItem('_external_id', extId); }
+            const userData = { client_user_agent: navigator.userAgent, external_id: extId };
+            if (fbp) userData.fbp = fbp;
+            if (fbc) userData.fbc = fbc;
+            const payload = { data: [{ event_name: eventName, event_time: timeNow, action_source: 'website', event_id: eventId, event_source_url: window.location.href, user_data: userData, custom_data: customData }] };
+            const testCode = new URLSearchParams(window.location.search).get('test_event_code');
+            if (testCode) payload.test_event_code = testCode;
+            fetch('/api/meta-capi', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).catch(() => {});
+        }
+
+        // InitiateCheckout al cargar la página de opciones
+        capiTrack('InitiateCheckout', {
+            content_name: 'Masterclass Alfajores Rentables',
+            content_ids: ['masterclass_alfajores_2026'],
+            content_type: 'product',
+            currency: 'UYU',
+            value: 3200
+        });
+
+        // Interceptar handlePay para disparar Purchase por CAPI antes de redirigir
+        const _origHandlePay = handlePay;
+        window.handlePay = function(method) {
+            const isCombo = currentModalType === 'combo';
+            const value = isCombo ? 5440 : 3200;
+            capiTrack('Purchase', {
+                content_name: isCombo ? 'Combo Alfajores + Chocolatería' : 'Masterclass Alfajores Rentables',
+                content_ids: [isCombo ? 'combo_alfajores_choco_2026' : 'masterclass_alfajores_2026'],
+                content_type: 'product',
+                currency: 'UYU',
+                value: value,
+                num_items: 1
+            });
+            _origHandlePay(method);
+        };
     </script>
 </body>
 </html>

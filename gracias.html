@@ -25,10 +25,10 @@
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '4195775177312015', { external_id: getExternalId() });
+        fbq('init', '668514569606718', { external_id: getExternalId() });
         fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=4195775177312015&ev=PageView&noscript=1"/></noscript>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=668514569606718&ev=PageView&noscript=1"/></noscript>
     <!-- End Meta Pixel Code -->
     <style>
         :root {
@@ -199,11 +199,30 @@
     </div>
 
     <script>
+        function capiPurchase(value, isCombo) {
+            const timeNow = Math.floor(Date.now() / 1000);
+            const eventId = 'evt_' + timeNow + '_' + Math.random().toString(36).slice(2, 11);
+            const getOrSetFbp = () => { const m = document.cookie.match(new RegExp('(^| )_fbp=([^;]+)')); if (m) return m[2]; const v = `fb.1.${Date.now()}.${Math.round(Math.random()*10000000000)}`; const d = new Date(); d.setTime(d.getTime()+90*24*60*60*1000); document.cookie=`_fbp=${v};expires=${d.toUTCString()};path=/`; return v; };
+            const getOrSetFbc = () => { const m = document.cookie.match(new RegExp('(^| )_fbc=([^;]+)')); if (m) return m[2]; const fbclid = new URLSearchParams(window.location.search).get('fbclid'); if (fbclid) { const v = `fb.1.${Date.now()}.${fbclid}`; const d = new Date(); d.setTime(d.getTime()+90*24*60*60*1000); document.cookie=`_fbc=${v};expires=${d.toUTCString()};path=/`; return v; } return null; };
+            let extId = localStorage.getItem('_external_id');
+            if (!extId) { extId = 'anon_' + timeNow + '_' + Math.random().toString(36).substring(2,15); localStorage.setItem('_external_id', extId); }
+            const fbp = getOrSetFbp(); const fbc = getOrSetFbc();
+            const userData = { client_user_agent: navigator.userAgent, external_id: extId };
+            if (fbp) userData.fbp = fbp;
+            if (fbc) userData.fbc = fbc;
+            const customData = { currency: 'UYU', value: value, num_items: 1, content_type: 'product', content_ids: [isCombo ? 'combo_alfajores_choco_2026' : 'masterclass_alfajores_2026'], content_name: isCombo ? 'Combo Alfajores + Chocolatería' : 'Masterclass Alfajores Rentables' };
+            const payload = { data: [{ event_name: 'Purchase', event_time: timeNow, action_source: 'website', event_id: eventId, event_source_url: window.location.href, user_data: userData, custom_data: customData }] };
+            const testCode = new URLSearchParams(window.location.search).get('test_event_code');
+            if (testCode) payload.test_event_code = testCode;
+            fetch('/api/meta-capi', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).catch(() => {});
+        }
+
         function updateUI() {
             const params = new URLSearchParams(window.location.search);
             const method = params.get('method');
             const plan = params.get('plan') || 'Taller';
-            
+            const isCombo = plan.includes('COMBO');
+
             // Recuperar datos del usuario
             let userData = { fname: 'Participante', lname: '', email: '-', phone: '-', cert: 'Digital' };
             try {
@@ -212,21 +231,21 @@
             } catch(e) {}
 
             const waBase = "https://wa.me/59898058264?text=";
-            
+
             if (method === 'card') {
                 document.getElementById('main-h1').textContent = '¡Inscripción Exitosa!';
                 document.getElementById('main-p').innerHTML = `¡Felicidades <strong>${userData.fname}</strong>! Ya aseguraste tu lugar. Te esperamos para aprender todos los secretos del taller.`;
-                
+
                 // Botón principal de confirmar asistencia para tarjetas
                 const mainBtn = document.getElementById('main-action-btn');
                 mainBtn.textContent = "Confirmar Asistencia";
                 mainBtn.onclick = function(e) {
                     e.preventDefault();
-                    const saleValue = plan.includes('COMBO') ? 5440 : 3200;
-                    if (typeof fbq !== 'undefined') fbq('track', 'Purchase', { currency: 'UYU', value: saleValue });
+                    const saleValue = isCombo ? 5440 : 3200;
+                    if (typeof fbq !== 'undefined') fbq('track', 'Purchase', { currency: 'UYU', value: saleValue }, { eventID: 'evt_' + Math.floor(Date.now()/1000) + '_card' });
+                    capiPurchase(saleValue, isCombo);
                     const msg = encodeURIComponent(`¡Hola! Soy ${userData.fname} ${userData.lname}. Acabo de realizar el pago por Tarjeta para el ${plan}. Mi correo es ${userData.email}, mi tel es ${userData.phone} y prefiero mi CERTIFICADO: ${userData.cert}. ¡Confirmame la recepción!`);
                     window.open(waBase + msg, '_blank');
-                    // Después de enviar el mensaje, llevar al grupo tras un breve delay
                     setTimeout(() => {
                         window.location.href = "https://chat.whatsapp.com/BGKuvkzAdYX62bUxhJRLMe?mode=gi_t";
                     }, 2000);
@@ -238,10 +257,11 @@
                 const comprobanteBtn = document.getElementById('wa-comprobante-btn');
                 const msgTransfer = encodeURIComponent(`Hola! Soy ${userData.fname} ${userData.lname}. Acabo de realizar la transferencia para el ${plan}. Mi correo: ${userData.email}, mi tel es ${userData.phone} y prefiero mi CERTIFICADO: ${userData.cert}. Adjunto comprobante.`);
                 comprobanteBtn.href = waBase + msgTransfer;
-                
+
                 comprobanteBtn.onclick = function() {
-                    const saleValue = plan.includes('COMBO') ? 4930 : 2900;
-                    if (typeof fbq !== 'undefined') fbq('track', 'Purchase', { currency: 'UYU', value: saleValue });
+                    const saleValue = isCombo ? 4930 : 2900;
+                    if (typeof fbq !== 'undefined') fbq('track', 'Purchase', { currency: 'UYU', value: saleValue }, { eventID: 'evt_' + Math.floor(Date.now()/1000) + '_transfer' });
+                    capiPurchase(saleValue, isCombo);
                 };
             }
         }
