@@ -26,6 +26,7 @@
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '668514569606718', { external_id: getExternalId() });
+        fbq('init', '4195775177312015', { external_id: getExternalId() });
         fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=668514569606718&ev=PageView&noscript=1"/></noscript>
@@ -210,6 +211,13 @@
             const userData = { client_user_agent: navigator.userAgent, external_id: extId };
             if (fbp) userData.fbp = fbp;
             if (fbc) userData.fbc = fbc;
+            try {
+                const saved = JSON.parse(localStorage.getItem('user_data') || '{}');
+                if (saved.email) userData.em = saved.email;
+                if (saved.phone) userData.ph = saved.phone;
+                if (saved.fname) userData.fn = saved.fname;
+                if (saved.lname) userData.ln = saved.lname;
+            } catch(e) {}
             const customData = { currency: 'UYU', value: value, num_items: 1, content_type: 'product', content_ids: [isCombo ? 'combo_alfajores_choco_2026' : 'masterclass_alfajores_2026'], content_name: isCombo ? 'Combo Alfajores + Chocolatería' : 'Masterclass Alfajores Rentables' };
             const payload = { data: [{ event_name: 'Purchase', event_time: timeNow, action_source: 'website', event_id: eventId, event_source_url: window.location.href, user_data: userData, custom_data: customData }] };
             const testCode = new URLSearchParams(window.location.search).get('test_event_code');

@@ -73,8 +73,15 @@ function trackEvent(eventName, eventData = {}, customData = {}) {
     }).catch(err => console.error('Meta CAPI error:', err));
 }
 
-// PageView via CAPI (Pixel already fires in <head>)
+// PageView + ViewContent via CAPI (Pixel already fires in <head>)
 trackEvent('PageView');
+trackEvent('ViewContent', {}, {
+    content_name: 'Masterclass Alfajores Rentables',
+    content_ids: ['masterclass_alfajores_2026'],
+    content_type: 'product',
+    currency: 'UYU',
+    value: 3200
+});
 
 // InitiateCheckout en el CTA principal
 document.querySelectorAll('a[href="opciones.html"]').forEach(btn => {
