@@ -236,14 +236,21 @@
                 document.getElementById('main-h1').textContent = '¡Inscripción Exitosa!';
                 document.getElementById('main-p').innerHTML = `¡Felicidades <strong>${userData.fname}</strong>! Ya aseguraste tu lugar. Te esperamos para aprender todos los secretos del taller.`;
 
+                // Disparar Purchase automáticamente al cargar la página (pago con tarjeta = confirmado)
+                if (!sessionStorage.getItem('_purchase_fired')) {
+                    sessionStorage.setItem('_purchase_fired', '1');
+                    const saleValue = isCombo ? 5440 : 3200;
+                    const autoEventId = 'evt_' + Math.floor(Date.now()/1000) + '_card_auto';
+                    if (typeof fbq !== 'undefined') fbq('track', 'Purchase', { currency: 'UYU', value: saleValue }, { eventID: autoEventId });
+                    capiPurchase(saleValue, isCombo);
+                }
+
                 // Botón principal de confirmar asistencia para tarjetas
                 const mainBtn = document.getElementById('main-action-btn');
                 mainBtn.textContent = "Confirmar Asistencia";
                 mainBtn.onclick = function(e) {
                     e.preventDefault();
                     const saleValue = isCombo ? 5440 : 3200;
-                    if (typeof fbq !== 'undefined') fbq('track', 'Purchase', { currency: 'UYU', value: saleValue }, { eventID: 'evt_' + Math.floor(Date.now()/1000) + '_card' });
-                    capiPurchase(saleValue, isCombo);
                     const msg = encodeURIComponent(`¡Hola! Soy ${userData.fname} ${userData.lname}. Acabo de realizar el pago por Tarjeta para el ${plan}. Mi correo es ${userData.email}, mi tel es ${userData.phone} y prefiero mi CERTIFICADO: ${userData.cert}. ¡Confirmame la recepción!`);
                     window.open(waBase + msg, '_blank');
                     setTimeout(() => {
