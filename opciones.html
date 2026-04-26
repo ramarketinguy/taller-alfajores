@@ -1363,10 +1363,6 @@
                 </svg>
                 <span>Volver</span>
             </a>
-            <div class="scarcity-badge">
-                <span class="pulse-dot"></span>
-                <span class="scarcity-text">QUEDAN <span class="count" id="cupos-count">15</span> CUPOS</span>
-            </div>
             <div style="width:40px;"></div>
         </div>
     </nav>
@@ -1672,26 +1668,6 @@
     <script>
         AOS.init({ duration: 700, once: true, offset: 50 });
 
-        // ═══ SCARCITY LOGIC ═══
-        let cupos = parseInt(localStorage.getItem('cupos_masterclass'));
-        if (isNaN(cupos)) cupos = 25; // Empezamos desde 25
-
-        const cuposEl = document.getElementById('cupos-count');
-        const lastVisit = localStorage.getItem('last_visit_time');
-        const now = Date.now();
-
-        // Restar 3 cupos si pasaron más de 2 minutos desde la última recarga
-        if (lastVisit && (now - parseInt(lastVisit) > 120000)) {
-            cupos = Math.max(2, cupos - 3);
-        }
-        localStorage.setItem('last_visit_time', now);
-        updateCupos(cupos);
-
-        function updateCupos(val) {
-            cupos = Math.max(2, val); // mínimo 2 cupos para no ponerlo a cero
-            if (cuposEl) cuposEl.textContent = cupos;
-            localStorage.setItem('cupos_masterclass', cupos);
-        }
 
         // ═══ TOAST NOTIFICATIONS ═══
         const namesPool = [
@@ -1728,9 +1704,7 @@
                     const currentShown = parseInt(localStorage.getItem('toasts_shown_count')) || 0;
                     localStorage.setItem('toasts_shown_count', currentShown + 1);
                     
-                    // Disminuir contador de cupos visualmente
-                    if (cupos > 2) updateCupos(cupos - 1);
-                    
+
                 }, delays[i]);
             }
         }
