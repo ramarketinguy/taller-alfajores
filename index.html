@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            <a href="opciones.html" class="btn btn-main" style="padding: 0.6rem 1.5rem; font-size: 0.8rem;">ASEGURAR MI LUGAR</a>
+            <a href="#inscripcion" class="btn btn-main" style="padding: 0.6rem 1.5rem; font-size: 0.8rem;">ASEGURAR MI LUGAR</a>
         </div>
     </nav>
 
@@ -89,7 +89,7 @@
             </h1>
             <p style="font-weight: 500; font-size: 1.15rem; max-width: 650px; line-height: 1.7; margin: 0 auto 2.5rem auto;">Una Masterclass 100% demostrativa donde te revelaré mis técnicas para producir las mejores variedades de alfajores argentinos sin maquinaria costosa. Fácil, desde tu cocina y elevando la calidad de tu marca.</p>
             <div style="margin-top: 2rem;">
-                <a href="opciones.html" class="btn btn-main btn-pulse">RESERVAR LUGAR AHORA</a>
+                <a href="#inscripcion" class="btn btn-main btn-pulse">RESERVAR LUGAR AHORA</a>
             </div>
             <div class="experience-badge" style="margin-top: 2rem;">
                 <span>✨</span> No se requiere experiencia previa
@@ -313,7 +313,41 @@
             <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 1rem; line-height: 1.6;">Al ser una clase demostrativa, los cupos son limitados para garantizar que tengas la mejor vista de cada proceso.</p>
             <p style="font-size: 1.25rem; font-weight: 700; color: var(--text-main); margin-bottom: 2.5rem;">Asegurá tu lugar antes de que se agoten.</p>
             
-            <a href="opciones.html" class="btn btn-main" style="padding: 1.4rem 4rem; font-size: 1rem;">VER PRECIOS Y ASEGURAR MI LUGAR</a>
+            <a href="#inscripcion" class="btn btn-main" style="padding: 1.4rem 4rem; font-size: 1rem;">VER PRECIOS Y ASEGURAR MI LUGAR</a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE INSCRIPCIÓN DIRECTA -->
+    <section id="inscripcion" style="background: white; padding: 4rem 0; border-top: 1px solid rgba(0,0,0,0.05);">
+        <div class="container" style="max-width: 800px;">
+            <div class="section-title" style="margin-bottom: 2rem;">
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary);">Asegurá tu Lugar</h2>
+                <p>Elegí tu método de pago preferido para completar la inscripción sin vueltas.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                <!-- Tarjeta -->
+                <div style="background: #faf8f3; border: 1px solid #e8e3db; border-radius: 16px; padding: 2rem; text-align: center;">
+                    <h3 style="font-size: 1.2rem; color: var(--text-main); margin-bottom: 0.5rem;">Pago con Tarjeta</h3>
+                    <p style="font-size: 0.9rem; color: #7a6a5d; margin-bottom: 1.5rem;">Aboná el costo total y financialo hasta en 12 cuotas con Mercado Pago.</p>
+                    <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--text-main); margin-bottom: 0.5rem;">$3.200</div>
+                    <a href="https://mpago.la/2NqHscG" target="_blank" onclick="trackCheckout('mp')" style="display: block; width: 100%; background: #009ee3; color: white; padding: 1rem; border-radius: 12px; font-weight: 700; text-decoration: none; transition: transform 0.3s; margin-top: 1.5rem; text-transform: uppercase;">Pagar con Mercado Pago</a>
+                </div>
+
+                <!-- Transferencia -->
+                <div style="background: rgba(26, 138, 74, 0.05); border: 1px solid rgba(26, 138, 74, 0.2); border-radius: 16px; padding: 2rem; text-align: center; position: relative;">
+                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #1a8a4a; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; white-space: nowrap;">10% OFF EFECTIVO</div>
+                    <h3 style="font-size: 1.2rem; color: var(--text-main); margin-bottom: 0.5rem;">Transferencia Bancaria</h3>
+                    <p style="font-size: 0.9rem; color: #7a6a5d; margin-bottom: 1.5rem;">Pagando por transferencia u OCA Blue obtenés un precio promocional.</p>
+                    <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: #1a8a4a; margin-bottom: 0.5rem;">$2.900</div>
+                    <a href="https://wa.me/59898058264?text=Hola!%20Quiero%20inscribirme%20a%20la%20Masterclass%20de%20Alfajores.%20Mi%20nombre%20es:" target="_blank" onclick="trackCheckout('transfer')" style="display: block; width: 100%; background: #1a8a4a; color: white; padding: 1rem; border-radius: 12px; font-weight: 700; text-decoration: none; transition: transform 0.3s; margin-top: 1.5rem; text-transform: uppercase;">Anotarme por WhatsApp</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem; color: #7a6a5d; font-size: 0.85rem;">
+                <p>🔒 Pago seguro · Reserva inmediata · Cupo garantizado</p>
+                <p style="margin-top: 0.5rem;">Incluye recetario completo y degustación.</p>
+            </div>
         </div>
     </section>
 

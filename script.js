@@ -73,30 +73,26 @@ function trackEvent(eventName, eventData = {}, customData = {}) {
     }).catch(err => console.error('Meta CAPI error:', err));
 }
 
-// Solo en index — opciones.html tiene su propio tracking
-if (!window.location.pathname.includes('opciones')) {
-    trackEvent('PageView');
-    trackEvent('ViewContent', {}, {
+// Trackeos de página
+trackEvent('PageView');
+trackEvent('ViewContent', {}, {
+    content_name: 'Masterclass Alfajores Rentables',
+    content_ids: ['masterclass_alfajores_2026'],
+    content_type: 'product',
+    currency: 'UYU',
+    value: 3200
+});
+
+// Función global para trackear los botones de pago en index.html
+window.trackCheckout = function(method) {
+    trackEvent('InitiateCheckout', {}, {
         content_name: 'Masterclass Alfajores Rentables',
         content_ids: ['masterclass_alfajores_2026'],
         content_type: 'product',
         currency: 'UYU',
-        value: 3200
+        value: method === 'mp' ? 3200 : 2900
     });
-}
-
-// InitiateCheckout en el CTA principal
-document.querySelectorAll('a[href="opciones.html"]').forEach(btn => {
-    btn.addEventListener('click', () => {
-        trackEvent('InitiateCheckout', {}, {
-            content_name: 'Masterclass Alfajores Rentables',
-            content_ids: ['masterclass_alfajores_2026'],
-            content_type: 'product',
-            currency: 'UYU',
-            value: 3200
-        });
-    });
-});
+};
 
 // Navbar Scroll Effect
 window.addEventListener('scroll', () => {
