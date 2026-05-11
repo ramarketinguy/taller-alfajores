@@ -83,9 +83,32 @@ trackEvent('ViewContent', {}, {
     value: 3200
 });
 
-// Función global para trackear los botones de pago en index.html
+// InitiateCheckout: se dispara cuando el usuario llega a la sección de precios
+(function() {
+    const inscripcionSection = document.getElementById('inscripcion');
+    if (!inscripcionSection) return;
+    let fired = false;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !fired) {
+                fired = true;
+                trackEvent('InitiateCheckout', {}, {
+                    content_name: 'Masterclass Alfajores Rentables',
+                    content_ids: ['masterclass_alfajores_2026'],
+                    content_type: 'product',
+                    currency: 'UYU',
+                    value: 3200
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    observer.observe(inscripcionSection);
+})();
+
+// Purchase: se dispara cuando el usuario hace click en un botón de pago
 window.trackCheckout = function(method) {
-    trackEvent('InitiateCheckout', {}, {
+    trackEvent('Purchase', {}, {
         content_name: 'Masterclass Alfajores Rentables',
         content_ids: ['masterclass_alfajores_2026'],
         content_type: 'product',
