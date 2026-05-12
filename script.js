@@ -83,39 +83,51 @@ trackEvent('ViewContent', {}, {
     value: 3200
 });
 
-// InitiateCheckout: se dispara cuando el usuario llega a la sección de precios
-(function() {
-    const inscripcionSection = document.getElementById('inscripcion');
-    if (!inscripcionSection) return;
-    let fired = false;
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !fired) {
-                fired = true;
-                trackEvent('InitiateCheckout', {}, {
-                    content_name: 'Masterclass Alfajores Rentables',
-                    content_ids: ['masterclass_alfajores_2026'],
-                    content_type: 'product',
-                    currency: 'UYU',
-                    value: 3200
-                });
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.3 });
-    observer.observe(inscripcionSection);
-})();
+// ── Lógica del Modal ────────────────────────────────────────
+const overlay   = document.getElementById('modalOverlay');
+const btnClose  = document.getElementById('modalClose');
 
-// Purchase: se dispara cuando el usuario hace click en un botón de pago
-window.trackCheckout = function(method) {
-    trackEvent('Purchase', {}, {
+function openModal() {
+    if(overlay) overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    trackEvent('InitiateCheckout', {}, {
         content_name: 'Masterclass Alfajores Rentables',
-        content_ids: ['masterclass_alfajores_2026'],
-        content_type: 'product',
-        currency: 'UYU',
-        value: method === 'mp' ? 3200 : 2900
+        currency: 'UYU', value: 2900,
+        content_ids: ['masterclass_alfajores_2026'], content_type: 'product'
     });
-};
+}
+
+function closeModal() {
+    if(overlay) overlay.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+if(btnClose) btnClose.addEventListener('click', closeModal);
+if(overlay) overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+document.querySelectorAll('.btn-open-modal').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+    });
+});
+
+// ── Purchase tracking ────────────────────────────────────────
+const btnMp = document.getElementById('btn-modal-mp');
+if(btnMp) btnMp.addEventListener('click', () => {
+    trackEvent('Purchase', {}, { currency:'UYU', value: 3200,
+        content_name: 'Masterclass Alfajores Rentables — Tarjeta',
+        content_ids: ['masterclass_alfajores_2026'], content_type:'product', num_items: 1 });
+});
+
+const btnWa = document.getElementById('btn-modal-wa');
+if(btnWa) btnWa.addEventListener('click', () => {
+    trackEvent('Purchase', {}, { currency:'UYU', value: 2900,
+        content_name: 'Masterclass Alfajores Rentables — Contado',
+        content_ids: ['masterclass_alfajores_2026'], content_type:'product', num_items: 1 });
+});
 
 // Navbar Scroll Effect
 window.addEventListener('scroll', () => {
