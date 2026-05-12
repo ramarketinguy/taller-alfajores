@@ -102,9 +102,9 @@ function closeModal() {
     if(overlay) overlay.classList.remove('open');
     document.body.style.overflow = '';
     
-    // Disparar el modal de cross-sell (siguiente taller) 5 segundos después de cerrar este
+    // Disparar el modal de cross-sell (siguiente taller) inmediatamente después de cerrar este
     if (window.triggerExitPopupWithDelay) {
-        window.triggerExitPopupWithDelay(5000);
+        window.triggerExitPopupWithDelay(0);
     }
 }
 
