@@ -260,5 +260,27 @@ Este documento sirve como contexto persistente para el agente de IA (Antigravity
 - **Comunidad WhatsApp:** Se integró el link al grupo oficial de alumnos (`https://chat.whatsapp.com/BGKuvkzAdYX62bUxhJRLMe?mode=gi_t`) para información y soporte post-venta.
 - **Soporte de Administradoras:** Se incluyó aviso de que las administradoras están disponibles en el grupo para cualquier consulta.
 
-*Última actualización: 14 de Abril, 2026 — 12:45 UYT*
+---
+
+## 15. Optimización de UX y Conversión (12 de Mayo, 2026)
+
+### Mecanismo Anti-molestia de Popups
+- **Persistencia:** Se implementó una lógica utilizando `localStorage` y parámetros de URL (`?from_modal=true`) para evitar que el popup de salida aparezca repetidamente cuando el usuario navega entre las dos landings (Alfajores <-> Chocolatería).
+- **Tracking de sesión:** Se utilizan las claves `saw_alfajores_exit_modal` y `saw_chocolateria_exit_modal` para bloquear re-activaciones innecesarias.
+
+### UX en Testimonios (Videos)
+- **Play Button Overlay:** Se añadió un icono de "Play" prominente y animado (`play-pulse`) sobre los videos de testimonios en ambas páginas.
+- **Interacción directa:** Al hacer click en el contenedor del video, este se reproduce automáticamente y oculta el overlay, mejorando el CTR de los testimonios.
+
+### Botón de WhatsApp Flotante
+- Se integró un botón de contacto directo por WhatsApp con posición fija (`fixed`) en la esquina inferior derecha en la landing de Alfajores, manteniendo consistencia visual con la marca.
+
+### Optimización de Conversión (CTAs)
+- **Atención Visual:** Se aplicó una animación de vibración sutil (`btn-attention`) a los botones principales de "Reservar mi lugar" para guiar el enfoque del usuario.
+- **Escasez (Scarcity):** Se rediseñó el indicador de escasez con una nueva clase `scarcity-badge-v2`, con fondo rojo vibrante y animación de pulso, para generar mayor urgencia visual.
+
+### Limpieza de UI
+- Se eliminó el botón redundante en la sección "¿Te sumás?" de la landing de Alfajores.
+
+*Última actualización: 12 de Mayo, 2026 — 12:47 UYT*
 

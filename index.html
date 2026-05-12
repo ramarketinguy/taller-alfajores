@@ -154,10 +154,13 @@
         <div class="container" style="max-width: 800px; text-align: center;">
             <p style="text-transform: uppercase; letter-spacing: 3px; color: var(--accent); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem;">Lo que dicen quienes ya participaron</p>
             <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #fff; margin-bottom: 2rem;">Testimonios del Taller de Chocolateria</h2>
-            <div style="position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.4); aspect-ratio: 16/9;">
+            <div class="video-container-wrap" style="position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.4); aspect-ratio: 16/9; cursor: pointer;" onclick="this.querySelector('video').play(); this.querySelector('.video-overlay-play').style.display='none';">
                 <video controls playsinline preload="metadata" poster="" style="width: 100%; height: 100%; object-fit: cover; display: block;">
                     <source src="testimonios-web.mp4" type="video/mp4">
                 </video>
+                <div class="video-overlay-play play-pulse">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
             </div>
         </div>
     </section>
@@ -321,13 +324,11 @@
     <!-- CTA FINAL CALL -->
     <section style="background: var(--bg-warm); text-align: center; border-top: 1px solid rgba(0,0,0,0.05);">
         <div class="container" style="max-width: 700px;">
-            <p style="text-transform: uppercase; letter-spacing: 2px; color: #ff4444; font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem;">ULTIMOS 6 LUGARES!</p>
+            <div class="scarcity-badge-v2">ULTIMOS 6 LUGARES!</div>
             <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--accent); font-weight: 600; font-size: 0.9rem;">LA PRODUCCIÓN NO DEBE SER COMPLICADA</p>
             <h2 style="font-family: 'Playfair Display', serif; font-size: 3.2rem; color: var(--primary); margin: 1rem 0 2rem 0;">¿Te Sumás Lunes 25 de Mayo?</h2>
             <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 1rem; line-height: 1.6;">Al ser una clase demostrativa, los cupos son limitados para garantizar que tengas la mejor vista de cada proceso.</p>
             <p style="font-size: 1.25rem; font-weight: 700; color: var(--text-main); margin-bottom: 2.5rem;">Asegurá tu lugar antes de que se agoten.</p>
-
-            <a href="#inscripcion" class="btn btn-main" style="padding: 1.4rem 4rem; font-size: 1rem;">VER PRECIOS Y ASEGURAR MI LUGAR</a>
         </div>
     </section>
 
@@ -339,7 +340,7 @@
                 <p>Elegí tu método de pago preferido para completar la inscripción sin vueltas.</p>
             </div>
 
-            <button class="btn btn-main btn-open-modal" style="padding: 1.4rem 4rem; font-size: 1.1rem; border-radius: 50px;">
+            <button class="btn btn-main btn-open-modal btn-attention" style="padding: 1.4rem 4rem; font-size: 1.1rem; border-radius: 50px;">
                 RESERVAR MI LUGAR
             </button>
             
@@ -473,7 +474,7 @@
             <p style="color:#d0c4b6; font-size:0.95rem; line-height:1.6; margin-bottom:0.5rem;">Domingo 24 de Mayo | 14 a 20 hs</p>
             <p style="color:#d0c4b6; font-size:0.95rem; line-height:1.6; margin-bottom:1.5rem;">Aprende tecnicas de bomboneria con chocolate sin templar y logra un brillo impecable.</p>
             <div style="font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:#cfa15f; margin-bottom:1.5rem;">Desde $2.900</div>
-            <a href="https://landing-chocolateria.vercel.app" id="exitPopupCTA" target="_blank" style="display:inline-block; background:linear-gradient(135deg,#cfa15f,#b46b3e); color:#1b0e0d; padding:1rem 2.5rem; border-radius:12px; font-weight:700; text-decoration:none; font-size:1rem; text-transform:uppercase; letter-spacing:1px; transition:transform 0.2s;">VER SEMINARIO DE CHOCOLATERIA</a>
+            <a href="https://landing-chocolateria.vercel.app?from_modal=true" id="exitPopupCTA" target="_blank" style="display:inline-block; background:linear-gradient(135deg,#cfa15f,#b46b3e); color:#1b0e0d; padding:1rem 2.5rem; border-radius:12px; font-weight:700; text-decoration:none; font-size:1rem; text-transform:uppercase; letter-spacing:1px; transition:transform 0.2s;">VER SEMINARIO DE CHOCOLATERIA</a>
         </div>
     </div>
 
@@ -507,10 +508,16 @@
             const overlay = document.getElementById('exitPopupOverlay');
             const closeBtn = document.getElementById('exitPopupClose');
 
-            document.documentElement.addEventListener('mouseleave', function(e) {
-                if (e.clientY <= 0 && !exitShown) {
+            document.documentElement.addEventListener('mouseleave', function showPopup(e) {
+                // Prevenir si ya lo vio en esta sesión o si viene de la otra landing vía modal
+                const urlParams = new URLSearchParams(window.location.search);
+                const fromModal = urlParams.get('from_modal');
+                const alreadySeen = localStorage.getItem('saw_alfajores_exit_modal');
+
+                if (e.clientY <= 0 && !exitShown && !alreadySeen && !fromModal) {
                     exitShown = true;
                     overlay.style.display = 'flex';
+                    localStorage.setItem('saw_alfajores_exit_modal', 'true');
                 }
             });
 
@@ -609,6 +616,12 @@
             </div>
         </div>
     </div>
+
+    <a href="https://wa.me/59891234567" class="floating-whatsapp" target="_blank" title="Contactanos por WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.628 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
 
     <script src="script.js"></script>
 </body>
