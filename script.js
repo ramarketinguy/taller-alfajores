@@ -101,6 +101,11 @@ function openModal() {
 function closeModal() {
     if(overlay) overlay.classList.remove('open');
     document.body.style.overflow = '';
+    
+    // Disparar el modal de cross-sell (siguiente taller) 5 segundos después de cerrar este
+    if (window.triggerExitPopupWithDelay) {
+        window.triggerExitPopupWithDelay(5000);
+    }
 }
 
 if(btnClose) btnClose.addEventListener('click', closeModal);
