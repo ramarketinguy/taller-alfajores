@@ -953,7 +953,59 @@ nav.scrolled .btn-main {
 .btn-mp-modal { display:flex; align-items:center; justify-content:center; gap:.6rem; width:100%; padding:1rem; border-radius:50px; background:#009ee3; color:#fff; font-size:.95rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; border:none; cursor:pointer; transition:0.3s; text-decoration:none; }
 .btn-mp-modal:hover { background:#007bbd; color:#fff; transform:translateY(-2px); }
 
+
 @media (max-width:500px) {
     .modal-header, .modal-payment { padding-left:1.2rem; padding-right:1.2rem; }
+}
+
+/* Mobile Sticky CTA (Skill-First Protocol) */
+.mobile-sticky-cta {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.sticky-cta-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.sticky-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.sticky-price {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--primary);
+}
+
+.sticky-label {
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .mobile-sticky-cta {
+        display: block;
+    }
+    
+    footer {
+        padding-bottom: 80px;
+    }
 }
 

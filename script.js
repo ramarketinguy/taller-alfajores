@@ -1,9 +1,20 @@
 // =============================================
-// Meta CAPI & Pixel Tracking
+// Meta CAPI & Pixel Tracking (Skill-First Audit v2.4)
 // =============================================
-function trackEvent(eventName, eventData = {}, customData = {}) {
+
+// Helper: SHA-256 Hashing for Advanced Matching (PII security)
+async function hashPII(value) {
+    if (!value) return null;
+    const msgUint8 = new TextEncoder().encode(value.trim().toLowerCase());
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function trackEvent(eventName, eventData = {}, customData = {}) {
     const timeNow = Math.floor(Date.now() / 1000);
     const eventId = 'evt_' + timeNow + '_' + Math.random().toString(36).slice(2, 11);
+    const urlParams = new URLSearchParams(window.location.search);
 
     if (typeof fbq === 'function') {
         fbq('track', eventName, customData, { eventID: eventId });
@@ -37,6 +48,10 @@ function trackEvent(eventName, eventData = {}, customData = {}) {
     const fbp = getOrSetFbp();
     const fbc = getOrSetFbc();
 
+    // Advanced Matching: Capture PII from URL (Option 1 - No Friction)
+    const rawEmail = urlParams.get('email') || urlParams.get('em');
+    const rawPhone = urlParams.get('phone') || urlParams.get('ph');
+    
     const userData = {
         client_user_agent: navigator.userAgent,
         external_id: (function() {
@@ -49,8 +64,13 @@ function trackEvent(eventName, eventData = {}, customData = {}) {
         })(),
         ...eventData
     };
+
     if (fbp) userData.fbp = fbp;
     if (fbc) userData.fbc = fbc;
+    
+    // Add hashed PII if present in URL
+    if (rawEmail) userData.em = await hashPII(rawEmail);
+    if (rawPhone) userData.ph = await hashPII(rawPhone);
 
     const eventPayload = {
         event_name: eventName,
